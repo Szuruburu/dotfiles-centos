@@ -1,0 +1,25 @@
+---
+- name: configure things for vimrc and bashrc
+  hosts: linux
+  gather_facts: yes
+  vars:
+    lf_bash: ../bashrc
+    lf_vim: ../vimrc
+
+  vars_prompt:
+    - name: username
+      prompt: What username would you like to patch?
+      private: no
+
+  tasks:
+    - name: get the file contents
+      set_fact:
+        bashrc: "{{ lookup('file, lf_bash') }}"
+        vimrc: "{{ lookup('file', lf_vim) }}"
+
+    - name: append file_contents to a remote .bashrc
+      copy:
+        content: "{{ bashrc }}"
+        dest: "{{ username + '/.bashrc' }}"
+
+
