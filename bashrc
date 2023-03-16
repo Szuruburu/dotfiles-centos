@@ -77,37 +77,24 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 alias please='sudo'
-alias ls='ls --group-directories-first'
-alias ll='ls --group-directories-first -lgh'
-alias llfn='ls -1'
-alias la='ls --group-directories-first -a'
-alias lla='ls --group-directories-first -la'
-alias laa='ls --group-directories-first -d .?*'
-alias llaa='ls --group-directories-first -ld .?*'
-alias lg="ls -lagh --git"
+alias ls='ls --color=always --group-directories-first'
+alias ll='ls --color=always --group-directories-first -lgh'
+alias llfn='ls --color=always -1'
+alias la='ls --color=always --group-directories-first -a'
+alias lla='ls --color=always --group-directories-first -la'
+alias laa='ls --color=always --group-directories-first -d .?*'
+alias llaa='ls --color=always --group-directories-first -ld .?*'
+alias lg="ls --color=always -lagh --git"
 alias tree="tree -C"
-# alias llfn='for n in *; do printf "%s\n" "$n"; done'
-# alias la='ls -as'
-# alias lla='ls -las'
-# alias laa='ls -d .?*'
-# alias llaa='ls -ld .?*'
-# alias ls='ls --group-directories-first --color=always'
-alias dir='-as --group-directories-first --color=always'
+alias dir='-as --group-directories-first'
 alias cls='clear'
 alias diff='diff --color=auto -y'
 #alias grep='grep --color=auto'
 
-alias pac='yay -S'
-alias upac='yay -Rns'
+alias yum='yum --color=always'
 
 alias reboot!='sudo reboot -f'
 alias shutdown='sudo shutdown -h now'
-alias ping='prettyping'
-alias cd..='cd ..'
-alias cclip='xclip -selection clipboard'
-alias clipp='xclip -selection clipboard -o'
-
-alias cm='cmatrix -b -C cyan'
 
 # Networking
 # ip color

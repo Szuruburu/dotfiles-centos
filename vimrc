@@ -25,19 +25,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-markdown'
-" Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'jiangmiao/auto-pairs'
-
-" JavaScript JSX React
-Plugin 'pangloss/vim-javascript'
-Plugin 'MaxMEllon/vim-jsx-pretty'
-" Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'alvan/vim-closetag'
-Plugin 'othree/html5.vim'
-
 Plugin 'janko-m/vim-test'
 Plugin 'alfredodeza/coveragepy.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
@@ -71,7 +62,6 @@ set tabstop=4
 set bg=dark
 set backspace=indent,eol,start
 set ignorecase
-set incsearch
 set laststatus=2
 set linebreak
 set nobackup
@@ -100,36 +90,13 @@ set splitbelow
 set visualbell
 set t_vb=
 
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 let g:UltiSnipsExpandTrigger="<c-cr>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-let g:user_emmet_settings = {
-		\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
-
-
-let g:vim_jsx_pretty_colorful_config = 1
-let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
-
-"CtrlP
-"let g:ctrlp_map = '<c-p>'
-"
-" air-line
+" Airline
 let g:airline_powerline_fonts = 1
-
-"Airline
 let g:airline_theme='badwolf'
 
 if !exists('g:airline_symbols')
@@ -161,54 +128,6 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=Lo
-
-" NERDtree settings
-" ==================
-" Autostart NERDtree on Vim startup
-" autocmd VimEnter * NERDTree
-
-
-
-" Auto-close NERDtree on file opne
-let NERDTreeQuitOnOpen = 1
-
-"nerd-commenter settings
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code
-" indentation
-let g:NERDDefaultAlign = 'left'
-
-" Show bookmarks on Vim startup
-let NERDTreeShowBookmarks=1
-
-" Allow commenting and inverting empty lines (useful when commenting a
-" region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Automatically delete the buffer of the file you just deleted with NerdTree
-let NERDTreeAutoDeleteBuffer = 1
-
-" Make it prettier
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" Highlight tags
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-	\ 'js' : 1,
-	\ 'jsx' : 1,
-	\}
 
 " More tags settings
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -267,16 +186,11 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+gP
 imap <C-v> <ESC>"+pa
 
-"NERDTree
-map <C-o> :NERDTreeToggle<CR>
-
 " Quick write session with F2
 map <F5> :mksession! ~/vim_session <cr>
 " And load session with F3
 map <F9> :source ~/vim_session <cr>
 
-" Insert new line below
-nmap <M-d> o<Esc>
 " Delete line without saving it in a register
 nmap <M-S-d> "_dd
 
@@ -298,6 +212,9 @@ nmap <silent> <leader>v : TestVisit<CR>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+
+" Search highlight
+nnoremap <F3> :set hlsearch!<CR>
 
 " Splits Resizing
 nmap <M-+> <C-w>+
@@ -358,8 +275,6 @@ endfunction
 
 " Remove all trailing whitespace by pressing F4
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-inoremap jj <Esc>l
 
 if has("gui_running")
 set guifont=Source\ Code\ Pro\ Regular\ 9
