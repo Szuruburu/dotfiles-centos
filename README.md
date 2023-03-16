@@ -1,6 +1,6 @@
 # DOTFILES
 
-##### Vimrc
+#### Vimrc
 
 Vundle. First go:
 ```bash
@@ -13,3 +13,12 @@ and then:
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
+#### Ranger
+```bash
+sudo pip3 install ranger-fm
+```
+
+Make config:
+```bash
+ranger --copy-config=all
+```
