@@ -5,7 +5,7 @@
 
 Vundle. First go:
 ```bash
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash - && sudo yum install nodejs cmake python3-pip
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash - && sudo yum install -y nodejs cmake python3-pip
 ```
 
 and then:
